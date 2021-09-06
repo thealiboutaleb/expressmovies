@@ -1,0 +1,19 @@
+{
+  "name": "expressmovies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thealiboutaleb/expressmovies.git"
+  },
+  "author": "Ali Boutaleb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thealiboutaleb/expressmovies/issues"
+  },
+  "homepage": "https://github.com/thealiboutaleb/expressmovies#readme"
+}
