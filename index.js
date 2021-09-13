@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res)=>{
-    res.send('Hello world')
-})
+// Import environment variables
+require('dotenv').config();
 
-app.listen(3000, () => {
-    console.log('Started on port 3000')
-})
+// Middleware for parsing json
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+require('./routes')(app);
+
+app.listen(process.env.API_PORT, () => {
+	console.log('Started on port ' + process.env.API_PORT);
+});
