@@ -1,6 +1,6 @@
 const Router = require('express-promise-router');
 const db = require('../database');
-
+const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 const router = new Router();
 
@@ -22,10 +22,11 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
+	const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUNDS));
+	const hash = await bcrypt.hash(req.body.password, salt);
 	const { rows } = await db.query(
 		'INSERT INTO public.PERSON(first_name, last_name, email, password, creation_date) VALUES ($1, $2, $3, $4, NOW())',
-		[req.body.firstName, req.body.lastName, req.body.email, 'aencr']
+		[req.body.firstName, req.body.lastName, req.body.email, hash]
 	);
-	console.log(rows);
 	res.sendStatus(201);
 });

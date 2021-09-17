@@ -1,2 +1,2 @@
 INSERT INTO public.PERSON(first_name, last_name, email, password, creation_date) VALUES 
-    ('john', 'doe', 'john.doe@gmail.com', 'test', NOW())
+    ('john', 'doe', 'john.doe@gmail.com', '$2b$10$9BZPoJf0T14mtCzCaMZwX.telrsF9OSmc8mgLFJ1RiaqtPJFyEnCy', NOW())
