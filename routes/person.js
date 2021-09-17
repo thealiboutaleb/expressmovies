@@ -20,3 +20,12 @@ router.post('/login', async (req, res) => {
 		} else res.status(401).send('Incorrect password');
 	} else res.status(401).send('Incorrect email');
 });
+
+router.post('/create', async (req, res) => {
+	const { rows } = await db.query(
+		'INSERT INTO public.PERSON(first_name, last_name, email, password, creation_date) VALUES ($1, $2, $3, $4, NOW())',
+		[req.body.firstName, req.body.lastName, req.body.email, 'aencr']
+	);
+	console.log(rows);
+	res.sendStatus(201);
+});

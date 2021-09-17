@@ -1,9 +1,9 @@
-const users = require('./user');
+const persons = require('./person');
 
 module.exports = (app) => {
 	app.get('/', (req, res) => {
 		res.send('Hello world');
 	});
 
-	app.use('/users', users);
+	app.use('/persons', persons);
 };
